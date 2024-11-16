@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DownTube - Baixe seus vídeos favoritos do YouTube!</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>DownTube</h1>
+        <p>Baixe seus vídeos do YouTube com facilidade!</p>
+    </header>
+
+    <main>
+        <form id="download-form">
+            <label for="url">Cole o link do vídeo:</label>
+            <input type="text" id="url" name="url" placeholder="https://www.youtube.com/watch?v=...">
+            
+            <label for="format">Escolha o formato:</label>
+            <select id="format" name="format">
+                <option value="mp3">MP3</option>
+                <option value="mp4">MP4</option>
+            </select>
+
+            <label for="output-folder">Pasta de destino:</label>
+            <input type="text" id="output-folder" name="output-folder" placeholder="C:/Downloads">
+
+            <button type="submit">Baixar</button>
+        </form>
+
+        <div id="resultado"></div>
+    </main>
+
+    <footer>
+        <p>© DownTube 2024</p>
+    </footer>
+
+    <script>
+        document.getElementById('download-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const url = document.getElementById('url').value;
+            const formatChoice = document.getElementById('format').value;
+            const outputFolder = document.getElementById('output-folder').value;
+
+            // Enviar dados para o servidor via AJAX
+            fetch('http://127.0.0.1:5000/download', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    url: url,
+                    format_choice: formatChoice,
+                    output_folder: outputFolder
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.message) {
+                    document.getElementById('resultado').innerHTML = `<p>${data.message}</p>`;
+                } else if (data.error) {
+                    document.getElementById('resultado').innerHTML = `<p style="color: red;">${data.error}</p>`;
+                }
+            })
+            .catch(error => {
+                document.getElementById('resultado').innerHTML = `<p style="color: red;">Erro ao se conectar ao servidor: ${error}</p>`;
+            });
+        });
+    </script>
+</body>
+</html>
