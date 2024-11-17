@@ -1,0 +1,45 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block título %}
+    <title>DownTube - Início</title>
+    {% endblock %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <!-- Favicon -->
+    <link rel="icon" href="{% static 'img/favicon.jpeg' %}" type="image/jpeg">
+</head>
+<body>
+    <header>
+        <div>
+            <img src="{% static 'img/logo.png' %}" width="80" alt="DownTube Logo">
+            <h1>DownTube</h1>
+        </div>
+        <p>O melhor aplicativo para baixar vídeos do YouTube!</p>
+    </header>
+    <main>
+        <section id="intro">
+            <h2>Bem-vindo ao DownTube</h2><br>
+            <p>Com o DownTube, você pode baixar seus vídeos favoritos do YouTube de forma rápida, fácil e segura. Escolha o formato, defina a pasta de destino e aproveite!</p>
+            
+        </section>
+        <section id="features">
+            <h2>Recursos do DownTube</h2>
+            <ul>
+                <li>Baixe vídeos em formato MP4</li>
+                <li>Baixe músicas no formato MP3</li>
+                <li>Escolha a pasta de destino diretamente no navegador</li>
+                <li>Interface simples e amigável</li>
+                <li>Processamento rápido</li>
+            </ul>
+            <a href="{% url 'download' %}" class="btn">Experimente agora!</a>
+        </section>
+    </main>
+    <footer>
+        <p>© DownTube 2024 - Todos os direitos reservados</p>
+    </footer>
+</body>
+</html>

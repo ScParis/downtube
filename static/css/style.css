@@ -1,0 +1,219 @@
+/* Configuração geral */
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    background: linear-gradient(135deg, #1e1e2f, #29293d);
+    color: #f4f4f8;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Cabeçalho */
+header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+header img {
+    width: 60px;
+    /* Logo menor e elegante */
+    height: auto;
+    margin-bottom: 10px;
+}
+
+header h1 {
+    font-size: 2.8rem;
+    color: #00d4ff;
+    font-weight: 700;
+    text-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+}
+
+header p {
+    font-size: 1.2rem;
+    color: #cfcfd6;
+    margin-top: 10px;
+}
+
+/* Contêiner principal */
+main {
+    display: flex;
+    gap: 40px;
+    /* Espaçamento entre as seções */
+    justify-content: center;
+    flex-wrap: wrap;
+    /* Permite quebrar linha em telas menores */
+    max-width: 1200px;
+    /* Limita largura máxima */
+    width: 100%;
+    padding: 20px;
+}
+
+/* Blocos de conteúdo */
+#intro,
+#features {
+    background: #2d2d44;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+    flex: 1;
+    min-width: 300px;
+    /* Para não ficarem muito estreitos */
+    max-width: 500px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#intro:hover,
+#features:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.6);
+}
+
+h2 {
+    font-size: 1.8rem;
+    color: #00d4ff;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+p {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: #cfcfd6;
+    text-align: center;
+}
+
+/* Lista de recursos */
+#features ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+}
+
+#features li {
+    font-size: 1rem;
+    color: #f4f4f8;
+    padding: 10px 0;
+    text-align: left;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+#features li:last-child {
+    border-bottom: none;
+}
+
+/* Botão */
+#intro .btn {
+    display: inline-block;
+    padding: 12px 25px;
+    background: #00d4ff;
+    color: #1e1e2f;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 50px;
+    transition: background 0.3s ease, transform 0.3s ease;
+    margin-top: 20px;
+}
+
+#intro .btn:hover {
+    background: #00b3e6;
+    transform: scale(1.1);
+}
+
+/* Rodapé */
+footer {
+    margin-top: 40px;
+    text-align: center;
+    font-size: 0.9rem;
+    color: #75757d;
+}
+
+footer p {
+    margin: 0;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    main {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    #intro,
+    #features {
+        margin: 0 auto;
+    }
+}
+
+/* Estilo para a tag <a> que envolve o botão */
+.btn-link {
+    text-decoration: none; /* Remove o sublinhado padrão do link */
+}
+
+/* Botão */
+.btn {
+    display: inline-block;
+    padding: 12px 25px;
+    background: #00d4ff;
+    color: #1e1e2f;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    /* Adjust the border radius as needed */
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    margin-top: 20px;
+}
+
+.btn:hover {
+    background-color: #00b3e6;
+    transform: scale(1.05);
+}
+
+.download-form-container {
+    background-color: #2d2d44;
+    /* Cor de fundo dos blocos de conteúdo */
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+    width: 80%;
+    /* Ajuste a largura conforme necessário */
+    margin: 0 auto;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    color: #fff;
+}
+
+input,
+select {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #333;
+    color: #fff;
+}
+
+button[type="submit"] {
+    background-color: #00b3e6;
+    /* Azul claro */
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+    background-color: #0056b2;
+    /* Azul mais escuro ao passar o mouse */
+}
