@@ -1,6 +1,5 @@
 {% load static %}
 
-<!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
@@ -18,7 +17,9 @@
         <p>Baixe seus vídeos ou músicas do YouTube com facilidade!</p>
     </header>
     <main>
-        <div class="download-form-container"> <form id="download-form">
+        <div class="download-form-container">
+            <form id="download-form" method="post">  <!-- Adicione method="post" -->
+                {% csrf_token %}  <!-- Adicione aqui -->
                 <div class="form-group">
                     <label for="url">Cole o link do vídeo:</label>
                     <input type="text" id="url" name="url" placeholder="https://www.youtube.com/watch?v=...">
@@ -36,10 +37,8 @@
                 </div>
                 <button type="submit">Baixar</button>
             </form>
-
             <div id="resultado"></div>
         </div>
-
     </main>
 <a href="{% url 'inicio' %}" class="btn">Voltar!</a>
     <footer>
