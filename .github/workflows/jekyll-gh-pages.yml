@@ -29,15 +29,19 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
       
-      # Update and upgrade system packages
-      - name: Update System Packages
-        run: sudo apt-get update && sudo apt-get upgrade -y
+      # Verify Gemfile existence
+      - name: Check for Gemfile
+        run: |
+          if [ ! -f Gemfile ]; then
+            echo "Error: Gemfile not found in the repository root."
+            exit 1
+          fi
       
-      # Install Bundler with sudo to resolve permission issues
+      # Install Bundler
       - name: Install Bundler
         run: sudo gem install bundler
       
-      # Install Jekyll dependencies
+      # Install dependencies
       - name: Install Dependencies
         run: bundle install
       
